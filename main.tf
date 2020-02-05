@@ -5,7 +5,13 @@ provider "aws" {
     region = "${var.aws_region}"
 }
 
-
+terraform {
+ backend "s3" {
+ bucket = "sripallavi001"
+ region = "us-east-1"
+ key = "sripallavistatefile"
+ }
+}
 
 resource "aws_vpc" "default" {
     cidr_block = "${var.vpc_cidr}"
